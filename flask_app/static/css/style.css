@@ -1,0 +1,12 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+main>.container-fluid {
+    margin-top: 3%;
+}
+
+.col-md-5 {
+    background-color: grey;
+}

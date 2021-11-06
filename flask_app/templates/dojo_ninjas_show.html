@@ -28,36 +28,29 @@
     <!-- //// MAIN AREA //////// -->
     <main role="main">
         <div class="container-fluid row justify-content-center">
-            <div class="col-md-5 bg-dark p-4">
+            <div class="bg-dark">
                 <h1 class="text-info">
-                    New Dojo
+                    All {{ dojo.name }} Dojo Ninjas
                 </h1>
                 <hr>
-                <form action='/dojos/post' method='post'>
-                    <div>
-                        <label class="form-label" for="name">Dojo name:</label>
-                        <input class="form-control" type="text" id="name" name="name">
-                    </div>
-                    <hr>
-                    <input class="btn btn-info" type="submit" value="Create">
-                </form>
-            </div>
-            <div class="col-md-1">
-
-            </div>
-            <div class="col-md-5 bg-dark p-4">
-                <h1 class="text-info">
-                    All Dojos
-                </h1>
-                {% for dojo in all_dojos %}
-                    <h2>
-                        <a class="text-white text-decoration-none" href="">{{ dojo.name }}</a>
-                    </h2>
-                {% endfor %}
-                <hr>
-                <button class="btn btn-info">
-                    Add Ninja
-                </button>
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th >First Name</th>
+                            <th >Last Name</th>
+                            <th >Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ninja in dojo.ninjas  %}
+                        <tr>
+                          <td >{{ ninja.first_name }}</td>
+                          <td>{{ ninja.last_name }}</td>
+                          <td>{{ ninja.age }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
             </div>
         </div>
     </main>

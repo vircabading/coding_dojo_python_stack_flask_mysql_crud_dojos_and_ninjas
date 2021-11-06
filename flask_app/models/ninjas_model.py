@@ -1,16 +1,16 @@
 # import the function that will return an instance of a connection ////////
 from flask_app.config.mysqlconnection import connectToMySQL
 
-TARGETDATABASE = 'users'                                                # Designates the database we are using
-TABLENAME = "users"                                                     # Designates the table we are using
+TARGETDATABASE = 'dojos_and_ninjas_schema'                              # Designates the database we are using
+TABLENAME = "ninjas"                                                     # Designates the table we are using
 
-# //// USERS CLASS ////////////////////////////////////////////////////////
-class Users:
-    def __init__( self , data ):                                        # Constructore function
+# //// NINJAS CLASS ////////////////////////////////////////////////////////
+class Ninjas:
+    def __init__( self , data ):                                        # Constructor function
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
-        self.email = data['email']
+        self.age = data['age']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
@@ -20,7 +20,7 @@ class Users:
     # @returns ID of created user
     @classmethod
     def save(cls, data ):
-        query = "INSERT INTO " + TABLENAME +" ( first_name , last_name , email) VALUES ( %(first_name)s , %(last_name)s , %(email)s );"
+        query = "INSERT INTO " + TABLENAME +" (first_name, last_name, age) VALUES ( %(first_name)s, %(last_name)s, %(age)s );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL(TARGETDATABASE).query_db( query, data )
         
@@ -52,7 +52,7 @@ class Users:
     # @Returns: Nothing
     @classmethod
     def update_one(cls, data:dict):
-        query = "UPDATE " + TABLENAME +" SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s WHERE id=%(id)s"
+        query = "UPDATE " + TABLENAME +" SET first_name=%(first_name)s, last_name=%(last_name)s, age=%(age)s WHERE id=%(id)s"
         return connectToMySQL(TARGETDATABASE).query_db(query, data)
 
     # //// DELETE //////////////////////////////////////////////////////////

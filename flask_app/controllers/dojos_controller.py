@@ -28,13 +28,25 @@ def dojos_post():
 
 # //// RETRIEVE ////////////////////////////////////
 
-# **** GET ALL *************************************
+# **** GET ALL DOJOS *******************************
 @app.route('/dojos/')
 @app.route('/dojos')                                                    # Read All Page
 def dojos():
     print("**** Retrieving Dojos *******************")
     all_dojos = dojos_model.Dojos.get_all()                             # Get all instances of from the database
-    return render_template("dojos.html", all_dojos = all_dojos)
+    return render_template("dojos_show.html", all_dojos = all_dojos)
+
+# **** GET DOJO WITH ALL ITS NINJAS ****************
+@app.route('/dojos/<int:id>')                                           # Read All Page
+def dojos_id(id):
+    print("**** Retrieving Dojo with all its Ninjas ********")
+    data = {
+        'id': id
+    }
+    print("Data ************")
+    print(data)
+    dojo = dojos_model.Dojos.get_dojo_with_ninjas(data)                 
+    return render_template("dojo_ninjas_show.html", dojo = dojo)
 
 # @app.route('/users/<int:id>')                                           # Retrive the data from one specified user
 # def users_id (id):

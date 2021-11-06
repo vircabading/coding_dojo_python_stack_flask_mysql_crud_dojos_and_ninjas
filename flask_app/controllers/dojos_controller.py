@@ -1,18 +1,23 @@
 # ////////////////////////////////////////////////////////
-# USERS CONTROLLER
+# DOJOS CONTROLLER
 # ////////////////////////////////////////////////////////
 
 from flask_app import app
-from flask import render_template, session, redirect, request
+from flask import render_template, session, redirect, request, flash
 import flask_app
 from flask_app.models import users_class
 
 # //// SHOW /////////////////////////////////////
 
+@app.route('/dojos/')
+@app.route('/dojos')                                                         # Main Page
+def dojos():
+    print("******** in dojos main page *******************")
+    return render_template("dojos.html")
+
 @app.route('/')                                                         # Main Page
 def index():
-    print("******** in index *******************")
-    return render_template("index.html")
+    return redirect("/dojos")
 
 @app.route('/users/new')                                                # **** FORM **** Create 1 New Users Page
 def users_new():

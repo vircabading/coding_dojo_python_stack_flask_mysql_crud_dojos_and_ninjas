@@ -6,4 +6,8 @@ body {
 main>.container-fluid {
     margin-top: 3%;
 }
-\
+
+.btn {
+    color: white;
+    font-weight: bold;
+}

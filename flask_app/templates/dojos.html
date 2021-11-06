@@ -17,7 +17,7 @@
   <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a class="text-warning" href="#" class="navbar-brand d-flex align-items-center">
+            <a class="text-warning" href="/dojos" class="navbar-brand d-flex align-items-center">
             <strong>Dojos and Ninjas</strong>
             </a>
             <a class="btn btn-warning" href="/dojos">HOME</a>
@@ -35,8 +35,8 @@
                 <hr>
                 <form action='/dojos/post' method='post'>
                     <div>
-                        <label class="form-label" for="first_name">First name:</label>
-                        <input class="form-control" type="text" id="first_name" name="first_name">
+                        <label class="form-label" for="name">Dojo name:</label>
+                        <input class="form-control" type="text" id="name" name="name">
                     </div>
                     <hr>
                     <input class="btn btn-info" type="submit" value="Create">
@@ -49,6 +49,11 @@
                 <h1 class="text-info">
                     All Dojos
                 </h1>
+                {% for dojo in all_dojos %}
+                    <h2>
+                        <a class="text-white text-decoration-none" href="">{{ dojo.name }}</a>
+                    </h2>
+                {% endfor %}
                 <hr>
                 <button class="btn btn-info">
                     Add Ninja

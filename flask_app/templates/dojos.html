@@ -28,18 +28,31 @@
     <!-- //// MAIN AREA //////// -->
     <main role="main">
         <div class="container-fluid row justify-content-center">
-            <div class="col-md-5">
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ad quo praesentium doloremque tempore quas, provident libero? Enim incidunt accusamus, voluptates asperiores quo, reiciendis temporibus, qui delectus velit blanditiis atque?
-                </p>
+            <div class="col-md-5 bg-dark p-4">
+                <h1 class="text-info">
+                    New Dojo
+                </h1>
+                <hr>
+                <form action='/dojos/post' method='post'>
+                    <div>
+                        <label class="form-label" for="first_name">First name:</label>
+                        <input class="form-control" type="text" id="first_name" name="first_name">
+                    </div>
+                    <hr>
+                    <input class="btn btn-info" type="submit" value="Create">
+                </form>
             </div>
             <div class="col-md-1">
 
             </div>
-            <div class="col-md-5">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis accusamus neque, delectus dolor excepturi quas rerum vitae iure, perspiciatis eveniet reprehenderit maxime vel mollitia ipsum quibusdam inventore temporibus fugiat sunt?
-                </p>
+            <div class="col-md-5 bg-dark p-4">
+                <h1 class="text-info">
+                    All Dojos
+                </h1>
+                <hr>
+                <button class="btn btn-info">
+                    Add Ninja
+                </button>
             </div>
         </div>
     </main>

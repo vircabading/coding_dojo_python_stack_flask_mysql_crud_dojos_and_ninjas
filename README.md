@@ -1,1 +1,1 @@
-# Python Flask mySQL Template Read Me
+# Dojos and Ninjas Flask MySQL Crud Read Me

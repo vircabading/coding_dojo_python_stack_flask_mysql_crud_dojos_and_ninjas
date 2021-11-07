@@ -72,39 +72,11 @@ def dojos_id(id):
     dojo = dojos_model.Dojos.get_dojo_with_ninjas(data)
     return render_template("dojo_ninjas_show.html", dojo = dojo)
 
-# @app.route('/users/<int:id>')                                           # Retrive the data from one specified user
-# def users_id (id):
-#     print ("*********** In users id ******************")
-#     data = {
-#         'id': id
-#     }
-#     user = users_class.Users.get_one(data)
-#     return render_template("users_read_one.html", user=user)
-
 # //// UPDATE ////////////////////////////////////
 
-# @app.route('/users/<int:id>/update/post', methods=['POST'])             # Update a specified user's information
-# def users_id_update_post(id):
-#     print ("*********** In Users ID Edit POST *****************")
-#     data = {                                                            # retrieve the data from the form
-#         'id': id,
-#         'first_name': request.form['first_name'],
-#         'last_name': request.form['last_name'],
-#         'email': request.form['email']
-#     }
-#     users_class.Users.update_one(data)
-#     return redirect('/users')
 
 # //// DELETE ////////////////////////////////////
 
-@app.route('/users/<int:id>/delete')                                    # Delete a specified user
-def users_id_delete(id):
-    print("******** IN DELETE ********************")
-    data = {
-        'id': id
-    }
-    dojos_model.Dojos.delete(data)
-    return redirect('/users')
 
 # //// 404 CATCH //////////////////////////////////
 

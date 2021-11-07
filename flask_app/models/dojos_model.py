@@ -51,22 +51,11 @@ class Dojos:
     @classmethod
     def get_dojo_with_ninjas (cls, data:dict):
         query = "SELECT * FROM dojos LEFT JOIN ninjas ON dojos.id = ninjas.dojo_id WHERE dojos.id = %(id)s;"
-        print("**** Query ********************************")
-        print(query)
-        print("Data:")
-        print(data)
-        results = connectToMySQL(TARGETDATABASE).query_db(query, data)        # Call the connectToMySQL function with the target db
+        results = connectToMySQL(TARGETDATABASE).query_db(query, data)  # Call the connectToMySQL function with the target db
                                                                         # results is a list of dictionaries
-        
-        print("***********************************************")
-        print("In get Dojo with Ninjas")
-        print("***********************************************")
-        print(results)
-
         dojo = cls(results[0])                                          # get an instance of this dojo
-
         for row_from_db in results:                                     # loop through all the list of dictionaries
-            ninja_data = {                                                  # use the dictionaries we are loopimg through to build a data structure
+            ninja_data = {                                              # use the dictionaries we are loopimg through to build a data structure
                 "id": row_from_db["ninjas.id"],
                 "first_name": row_from_db["first_name"],
                 "last_name": row_from_db["last_name"],

@@ -19,8 +19,8 @@ class Ninjas:
     # **** Insert One Method ***********************************************
     # @returns ID of created user
     @classmethod
-    def save(cls, data ):
-        query = "INSERT INTO " + TABLENAME +" (first_name, last_name, age) VALUES ( %(first_name)s, %(last_name)s, %(age)s );"
+    def create(cls, data:dict ):
+        query = "INSERT INTO " + TABLENAME +" (first_name, last_name, age, dojo_id) VALUES ( %(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL(TARGETDATABASE).query_db( query, data )
         

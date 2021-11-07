@@ -28,39 +28,35 @@
     <!-- //// MAIN AREA //////// -->
     <main role="main">
         <div class="container-fluid row justify-content-center">
-            <div class="col-md-5 bg-dark p-4">
+            <div class="bg-dark">
                 <h1 class="text-info">
-                    New Dojo
+                    Create a New Ninja
                 </h1>
                 <hr>
-                <form action='//post' method='post'>
-                                    
-                </form>
-                <form action='/dojos/post' method='post'>
+                <form action='/ninjas/create/post' method='post'>
                     <div>
-                        <label class="form-label" for="name">Dojo name:</label>
-                        <input class="form-control" type="text" id="name" name="name">
+                        <label class="form-label" for="dojo_id">Dojos<label>
+                        <select class="form-control m-2" id="dojo_id" name="dojo_id">
+                            {% for dojo in all_dojos %}
+                            <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label" for="first_name">First Name:</label>
+                        <input class="form-control" type="text" id="first_name" name="first_name">
+                    </div>
+                    <div>
+                        <label class="form-label" for="last_name">Last Name:</label>
+                        <input class="form-control" type="text" id="last_name" name="last_name">
+                    </div>
+                    <div>
+                        <label class="form-label" for="age">Age:</label>
+                        <input class="form-control" type="number" id="age" name="age">
                     </div>
                     <hr>
                     <input class="btn btn-info" type="submit" value="Create">
                 </form>
-            </div>
-            <div class="col-md-1">
-
-            </div>
-            <div class="col-md-5 bg-dark p-4">
-                <h1 class="text-info">
-                    All Dojos
-                </h1>
-                {% for dojo in all_dojos %}
-                    <h2>
-                        <a class="text-white text-decoration-none" href="/dojos/{{ dojo.id }}">{{ dojo.name }}</a>
-                    </h2>
-                {% endfor %}
-                <hr>
-                <a class="btn btn-info" href="/ninjas/create">
-                    Add a Ninja
-                </a>
             </div>
         </div>
     </main>

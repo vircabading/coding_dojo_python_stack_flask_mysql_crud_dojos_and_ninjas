@@ -17,15 +17,13 @@ class Dojos:
 
     # //// CREATE //////////////////////////////////////////////////////////
 
-    # **** Insert One Method ***********************************************
-    # @returns ID of created user
+    # **** Create one dojo ***********************************************
+    # @returns ID of created dojo
     @classmethod
-    def save(cls, data ):
+    def dojos_create(cls, data ):
         query = "INSERT INTO " + TABLENAME +" (name) VALUES ( %(name)s );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL(TARGETDATABASE).query_db( query, data )
-        
-    # //// RETRIEVE /////////////////////////////////////////////////////////
 
     # **** Get All Class Method *******************************************
     # @Returns: a list of instances of the class
